@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+
+				<!--  card -->	
+				<br><br><br>
+				{% for p in post %}
+				<div class="card">
+					<div class="card-body">
+						<br>
+						<a class="text-decoration-none" href="{{ url_for('post', id=p.id)}}"><h5 class="card-title text-primary h4"> {{ p.title }} </h5></a>
+						<br>
+						<p class="card-text text-muted">posted at : {{ p.dateCreated.strftime('%H:%M %p on  %d %b, %Y ') }}</p>
+						<hr>
+						<span>
+							<p class="card-text ">{{ p.content | truncate(900) | safe  }}</p>
+						    <a href="{{ url_for('post', id=p.id)}}" class="text-primary text-decoration-none">...Read More</a>
+						</span>
+						<hr>
+					</div>
+				</div>
+				<br><br><br><br>
+				{% endfor %}
+				<!-- /card -->
+			</div>
+
+
+			<div class="col-md-4">
+				<br><br>
+				<div class="card">
+					
+						
+						<div class="card-body">
+							<h5 class="card-title">About me</h5>
+							<p class="card-text">Hello World!<br>
+							</p>
+							<a href="#" class="btn btn-primary">Go somewhere</a>
+						</div>
+				
+				</div>
+			</div>
+
+
+
+		</div>
+	</div>
+</div>
+<br><br><br><br><br>
+
+{% endblock %}

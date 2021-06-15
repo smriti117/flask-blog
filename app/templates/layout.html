@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    {% if title %}
+      <title>Smriti Yadav - {{ title }} </title>
+    {% else %}
+      <title>Smriti Yadav</title>
+    {% endif %}
+
+    <style>
+      .card{
+         border: 2px;
+         padding: 20px;
+        box-shadow: 5px 10px 0px 10px #e1e3e6;
+
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- navbar  -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #174282">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;Smriti Yadav</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{ url_for('createPost') }}">Create Post</a>
+            </li> 
+             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{ url_for('logout') }}">Logout</a>
+            </li> 
+          {% else %}
+          
+
+            {% endif %}          
+          </ul>
+          <!-- <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search Articles..." aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form> -->
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- /navbar  -->
+
+    <!-- body -->
+    <div class="container-fluid">
+    {% block content %}
+    {% endblock %}
+    </div>
+    <!-- body -->
+
+     <!-- footer  -->
+    <footer style="background-color: #e1e3e6">
+    <br><br><br><br>
+    <div class="row text-center">
+    
+     
+       <div class="col-md-4">
+        <h5>Portfolio</h5>
+        <ul class="list-unstyled">
+          
+          <li><a class="link-primary text-decoration-none" href="#">Github</a></li>
+          <li><a class="link-primary text-decoration-none" href="#">Freecodecamp</a></li>
+          </ul>
+      </div>
+
+       <div class="col-md-4">
+        <h5>Project Links</h5>
+        <ul class="list-unstyled">
+          
+          <li><a class="link-primary text-decoration-none" href="#">Project Link</a></li>
+          
+          </ul>
+      </div>
+
+        <div class="col-md-4">
+        <h5>Let's Connect</h5>
+        <ul class="list-unstyled">
+          <li><a class="link-primary text-decoration-none" href="#">Linkedin</a></li>
+          
+
+          </ul>
+      </div>
+      <br><br><br>
+      <p class="text-small text-muted text-center">&copy; Smriti Yadav 2021-2022</p>
+    </div>
+
+  </footer>
+ 
+
+
+    <!-- /footer  -->
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
